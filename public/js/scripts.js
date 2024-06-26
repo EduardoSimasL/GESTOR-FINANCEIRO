@@ -5,7 +5,7 @@ function confirmarExclusao(id, tipo) {
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
+        cancelButtonColor: '#820AD1',
         confirmButtonText: 'Sim, excluir!'
     }).then((result) => {
         if (result.isConfirmed) {
