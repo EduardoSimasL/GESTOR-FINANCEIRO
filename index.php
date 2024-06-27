@@ -56,7 +56,7 @@ switch ($action) {
     case 'editar_despesa':
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $despesaController->editarDespesa($_POST['id'], $_POST['valor'], $_POST['descricao'], $_POST['data'], $_POST['categoria']);
-            header('Location: index.php?action=listar_receitas');
+            header('Location: index.php?action=listar_despesas');
             exit();
         } else {
             $id = $_GET['id'] ?? null;
