@@ -29,4 +29,9 @@ class ReceitaController {
         $stmt = $this->db->prepare("DELETE FROM receitas WHERE id = ?");
         return $stmt->execute([$id]);
     }
+    public function getReceitaById($id) {
+        $stmt = $this->db->prepare("SELECT * FROM receitas WHERE id = ?");
+        $stmt->execute([$id]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
 }

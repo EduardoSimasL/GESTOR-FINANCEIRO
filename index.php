@@ -16,8 +16,8 @@ $action = $_GET['action'] ?? null;
 switch ($action) {
     case 'adicionar_receita':
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $receitaController->adicionarReceita($_POST['valor'], $_POST['descricao'], $_POST['data'], $_POST['categoria']);
-            header('Location: index.php?action=listar_receitas');
+        $receitaController->adicionarReceita($_POST['valor'], $_POST['descricao'], $_POST['data'], $_POST['categoria']);
+        header('Location: index.php?action=listar_receitas');
             exit();
         }
         include 'src/views/form_receita.php';
@@ -27,7 +27,15 @@ switch ($action) {
         include 'src/views/listar_receitas.php';
         break;
     case 'editar_receita':
-        // lógica para edição de receita
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $receitaController->editarReceita($_POST['id'], $_POST['valor'], $_POST['descricao'], $_POST['data'], $_POST['categoria']);
+        header('Location: index.php?action=listar_receitas');
+        exit();
+    } else {
+        $id = $_GET['id'] ?? null;
+        $receita = $receitaController->getReceitaById($id);
+        include 'src/views/editar_receita.php';
+    }
         break;
     case 'excluir_receita':
         $receitaController->excluirReceita($_GET['id']);
@@ -46,7 +54,15 @@ switch ($action) {
         include 'src/views/listar_despesas.php';
         break;
     case 'editar_despesa':
-        // lógica para edição de despesa
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $despesaController->editarDespesa($_POST['id'], $_POST['valor'], $_POST['descricao'], $_POST['data'], $_POST['categoria']);
+            header('Location: index.php?action=listar_receitas');
+            exit();
+        } else {
+            $id = $_GET['id'] ?? null;
+            $receita = $receitaController->getReceitaById($id);
+            include 'src/views/editar_despesa.php';
+        }
         break;
     case 'excluir_despesa':
         $despesaController->excluirDespesa($_GET['id']);
