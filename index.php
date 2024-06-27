@@ -60,7 +60,7 @@ switch ($action) {
             exit();
         } else {
             $id = $_GET['id'] ?? null;
-            $receita = $receitaController->getReceitaById($id);
+            $despesa = $despesaController->getDespesaById($id);
             include 'src/views/editar_despesa.php';
         }
         break;
