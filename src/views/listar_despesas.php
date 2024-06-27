@@ -33,8 +33,8 @@ $despesas = $despesaController->listarDespesas();
                     <td><?php echo $despesa['data']; ?></td>
                     <td><?php echo $despesa['categoria']; ?></td>
                     <td>
-                        <a href="index.php?action=editar_despesa&id=<?php echo $despesa['id']; ?>" class="btn btn-primary">Editar</a>
-                        <a href="index.php?action=excluir_despesa&id=<?php echo $despesa['id']; ?>" class="btn btn-danger">Excluir</a>
+                        <a href="index.php?action=editar_despesa&id=<?= $despesa['id'] ?>" class="btn btn-warning">Editar</a>
+                        <button onclick="confirmarExclusao('<?= $despesa['id'] ?>', 'despesa')" class="btn btn-danger">Excluir</button>
                     </td>
                 </tr>
             <?php endforeach; ?>
