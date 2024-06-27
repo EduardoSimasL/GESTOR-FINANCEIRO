@@ -1,7 +1,7 @@
 <?php
 namespace App\Views;
 include 'header.php'; ?>
-<h2>Receitas</h2>
+<h2>Listagem de Receitas</h2>
 <table class="table">
     <thead>
         <tr>
