@@ -15,8 +15,12 @@ $action = $_GET['action'] ?? null;
 
 switch ($action) {
     case 'adicionar_receita':
-        $receitaController->adicionarReceita($_POST['valor'], $_POST['descricao'], $_POST['data'], $_POST['categoria']);
-        header('Location: index.php?action=listar_receitas');
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $receitaController->adicionarReceita($_POST['valor'], $_POST['descricao'], $_POST['data'], $_POST['categoria']);
+            header('Location: index.php?action=listar_receitas');
+            exit();
+        }
+        include 'src/views/form_receita.php';
         break;
     case 'listar_receitas':
         $receitas = $receitaController->listarReceitas();
@@ -30,8 +34,12 @@ switch ($action) {
         header('Location: index.php?action=listar_receitas');
         break;
     case 'adicionar_despesa':
-        $despesaController->adicionarDespesa($_POST['valor'], $_POST['descricao'], $_POST['data'], $_POST['categoria']);
-        header('Location: index.php?action=listar_despesas');
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $despesaController->adicionarDespesa($_POST['valor'], $_POST['descricao'], $_POST['data'], $_POST['categoria']);
+            header('Location: index.php?action=listar_despesas');
+            exit();
+        }
+        include 'src/views/form_despesa.php';
         break;
     case 'listar_despesas':
         $despesas = $despesaController->listarDespesas();
