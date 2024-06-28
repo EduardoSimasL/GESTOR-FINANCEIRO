@@ -11,3 +11,5 @@ Rodrigo Alves Filho 22110022-2
 Sabrinna de Souza Teixeira Santos 22016840-2
 
 Thiago Rogerio Bassete de Araujo 22179284-2
+
+https://miro.com/app/board/uXjVK5bnNRw=/
