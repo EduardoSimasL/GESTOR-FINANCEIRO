@@ -35,4 +35,8 @@ class DespesaController {
         $stmt->execute([$id]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
+    public function getTotalDespesas() {
+        $stmt = $this->db->query("SELECT SUM(valor) as total FROM despesas");
+        return $stmt->fetch(PDO::FETCH_ASSOC)['total'];
+    }
 }
