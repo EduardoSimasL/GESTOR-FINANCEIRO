@@ -4,9 +4,13 @@ require 'src/models/Despesa.php';
 require 'src/models/Receita.php';
 require 'src/controllers/ReceitaController.php';
 require 'src/controllers/DespesaController.php';
+require 'src/controllers/HomeController.php';
 
 use App\controllers\ReceitaController;
 use App\Controllers\DespesaController;
+use App\Controllers\HomeController;
+
+
 
 $receitaController = new ReceitaController();
 $despesaController = new DespesaController();
@@ -45,6 +49,7 @@ switch ($action) {
         header('Location: index.php?action=listar_despesas');
         break;
     default:
-        include 'src/views/home.php';
+        $controller = new HomeController();
+        $controller->index();
         break;
 }
